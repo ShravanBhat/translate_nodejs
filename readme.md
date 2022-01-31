@@ -48,8 +48,8 @@ A web server with a RESTful API to translate a text from one language to another
 
 *Smart Pre-Caching**
 
-![Pre cache fetch](https://github.com/ShravanBhat/translate_nodejs/tree/master/screenshots/smartcache.png?raw=true)<br/>
+![Pre cache fetch](/screenshots/smartcache.png?raw=true)<br/>
 
 **Incorrect Language Name**
 
-![Incorrect Input](https://github.com/muneeb21/translation-api/blob/master/screenshots/incorrectinputlanguage.png?raw=true)<br/>
+![Incorrect Input](/screenshots/incorrectinputlanguage.png?raw=true)<br/>
