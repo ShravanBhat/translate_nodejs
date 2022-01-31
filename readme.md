@@ -5,18 +5,22 @@ A web server with a RESTful API to translate a text from one language to another
   >Nodejs<br/>
   >Express framework<br/>
   >Redis (For caching & smart caching)<br/>
-  >Jest to test the API<br/>
+  >Mocha to test the API<br/>
 
 **Key modules used**<br>
 - vitalets/google-translate-api (for translating text)<br/>
 - iso-639-1 (for detecting language code)<br/>   
 
 **Run the API**
+>Type npm start in terminal to start the server
 >To get the translation, we can use Postman or any web browser and hit this API as follows:
 ```
-{URL}/translate?sourceText=&targetLanguage=''
+{URL}/translate?sourceText=&targetLanguage=&sourceLanguage=
 
-# URL: (http://localhost:5000) or Deployed link
+# URL: (http://localhost:5000) or https://immense-anchorage-24441.herokuapp.com
+```
+**Run the API**
+>Type npm test in terminal to test the API
 
 
 **Functions of the API**
