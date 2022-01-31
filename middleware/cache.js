@@ -34,8 +34,7 @@ module.exports.cacheFetch = function (req, res, next) {
         message: "Here is the translated text",
         data: value
       });
-    }else if(err){
-      throw err;
+    
     } else {
       next();
     }
