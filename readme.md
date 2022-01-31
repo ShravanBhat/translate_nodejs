@@ -41,7 +41,7 @@ A web server with a RESTful API to translate a text from one language to another
 
 ### Screenshots
 **First time API call for a particular word and language**
-![First API Call](https://github.com/ShravanBhat/translate_nodejs/tree/master/screenshots/Firstcall.png?raw=true)<br/>
+![First API Call](/master/screenshots/Firstcall.png?raw=true)<br/>
 
 **Fetch from cache**
 ![Cache call](https://github.com/ShravanBhat/translate_nodejs/tree/master/screenshots/Secondcall.png?raw=true)<br/>
