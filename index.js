@@ -1,6 +1,6 @@
 const express=require("express");
 
-const PORT=server.listen(process.env.PORT || 3000);
+let PORT=process.env.PORT || 3000;
 const app=express();
 app.use(express.urlencoded({ extended: false }));
 app.use('/',require("./route/router"));
