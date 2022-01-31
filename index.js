@@ -7,8 +7,9 @@ app.use('/',require("./route/router"));
 
 app.listen(PORT, function(err){
     if (err){
-        console.log('Error in running the server: ${err}');
+        console.log('Error in running the server:'+err);
     }
 
-    console.log('Server running on port: ${PORT}');
+    console.log('Server running on port:'+PORT);
 });
+module.exports = app;
