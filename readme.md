@@ -46,7 +46,7 @@ A web server with a RESTful API to translate a text from one language to another
 **Fetch from cache**
 ![Cache call](/screenshots/Secondcall.png?raw=true)<br/>
 
-*Smart Pre-Caching**
+**Smart Pre-Caching**
 
 ![Pre cache fetch](/screenshots/smartcache.png?raw=true)<br/>
 
