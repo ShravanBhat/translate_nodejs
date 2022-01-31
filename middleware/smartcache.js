@@ -14,34 +14,31 @@ const client = redis.createClient({
 client.on('connect', () => {
     console.log('connected to port')
 })
-const translate = require('@vitalets/google-translate-api');
 
-const ISO6391 = require('iso-639-1');
-
-const similarLanguagesList = [
+//list of languages similar to each other
+const similarLanguages = [
     ["hi", "kn", "ta", "te", "ml"],
     ["mr", "gu", "hi", "sd"],
     ["bn", "pa", "or", "as", "ur", "bh"],
-    ["en", "cy", ],
+    ["en", "cy"],
     ["fr", "de", "it", "es", "nl"]
 ]
 
-
+//funtion for smart caching
 module.exports.smartcaching = function(sourceText, targetlanguageCode, sourceLanguageCode) {
-
-    for (let i = 0; i < similarLanguagesList.length; i++) {
-        if (similarLanguagesList[i].includes(targetlanguageCode)) {
-
-            for (j = 0; j < similarLanguagesList[i].length; j++) {
-                console.log(similarLanguagesList[i][j]);
-
+    //check if the input target language is in the particular row or not
+    for (let i = 0; i < similarLanguages.length; i++) {
+        if (similarLanguages[i].includes(targetlanguageCode)) {
+            
+            for (j = 0; j < similarLanguages[i].length; j++) {      //if a particular row includes the language then run the loop to cache output for all the languages in that row
+                console.log(similarLanguages[i][j]);
                 let sourceLanguageCode = 'en';
-                let key = sourceLanguageCode + ":" + sourceText + ":" + similarLanguagesList[i][j];
-                if (similarLanguagesList[i][j] != targetlanguageCode) {
+                let key = sourceLanguageCode + ":" + sourceText + ":" + similarLanguages[i][j];
+                if (similarLanguages[i][j] != targetlanguageCode) {
 
                     translateapi(sourceText, {
                         from: sourceLanguageCode,
-                        to: similarLanguagesList[i][j]
+                        to: similarLanguages[i][j]
                     }).then(response => {
 
                         console.log(key);

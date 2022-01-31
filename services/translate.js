@@ -1,4 +1,4 @@
-const translateapi = require('@vitalets/google-translate-api');
+const translateapi = require('@vitalets/google-translate-api'); //module used for translation
 
 const ISO6391 = require('iso-639-1');
 const cacheSetter = require('../middleware/cache');
@@ -7,12 +7,12 @@ const preCache = require('../middleware/smartcache');
 const redis = require('redis');
 const redisconf = require('../config.js');
 
-const REDIS_PORT = redisconf.port;
-const REDIS_HOST = redisconf.host;
-const REDIS_PASSWORD = redisconf.password;
+const REDIS_PORT = redisconf.port; //fetch port
+const REDIS_HOST = redisconf.host; //host
+const REDIS_PASSWORD = redisconf.password; //and password from config file
 
 const client = redis.createClient({
-    url: 'redis://:' + REDIS_PASSWORD + '@' + REDIS_HOST + ':10901'
+    url: 'redis://:' + REDIS_PASSWORD + '@' + REDIS_HOST + ':'+REDIS_PORT
 });
 
 (async () => {
@@ -26,16 +26,15 @@ module.exports.translate = function(req, res) {
         let sourceLanguageCode = ISO6391.getCode(requestparam.sourceLanguage) || 'en';
         console.log('Precaching...');
         preCache.smartcaching(requestparam.sourceText, targetLanguageCode, sourceLanguageCode);
-        console.log(targetLanguageCode);
+
+        //if the input language name is correct,it will check the avalability of text in check else it outputs invalid language
         if (targetLanguageCode) {
             console.log('Translating...');
-            translateapi(requestparam.sourceText, {
-                from: sourceLanguageCode,
-                to: targetLanguageCode
-            }).then(response => {
+            translateapi(requestparam.sourceText, {from: sourceLanguageCode,to: targetLanguageCode}) //Translation api
+            .then(response => {
                 console.log(response.text);
                 let key = sourceLanguageCode + ":" + requestparam.sourceText + ":" + targetLanguageCode;
-                //client.set(key, response.text);
+               
                 cacheSetter.cacheSet(key, response.text);
 
                 output.inputLanguage = requestparam.sourceLanguage;
@@ -55,7 +54,7 @@ module.exports.translate = function(req, res) {
         } else {
             return res.json(422, {
                 success: false,
-                message: "Kindly check the source Language"
+                message: "Kindly check the source Language" //incase the input lang is incorrect 
             });
         }
     } catch (err) {

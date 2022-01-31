@@ -13,7 +13,8 @@ describe('GET /translate?sourceText=&targetLanguage=&sourceLanguage=',()=>{
         .get('/translate?sourceText=hello&targetLanguage=hindi&sourceLanguage=english') //  word : Hello ; totranslate : hindi(hi)
         .end((err,response)=>{
                 response.should.have.status(200);
-                response.body.should.be.eql({"success": true,
+                response.body.should.be.eql({
+                "success": true,
                 "data": {
                     "inputLanguage": "english",
                     "inputText": "hello",
@@ -26,7 +27,7 @@ describe('GET /translate?sourceText=&targetLanguage=&sourceLanguage=',()=>{
     })
     it('It should not  GET the translated word of the target language',(done)=>{
         chai.request(server)
-        .get('/translate?sourceText=hello&targetLanguage=hondi&sourceLanguage=english') //  word : Hello ; totranslate : Hindi (hn) : wrong language code given
+        .get('/translate?sourceText=hello&targetLanguage=hondi&sourceLanguage=english') //  word : Hello ; totranslate : Hindi : wrong language name(hondi) given
         .end((err,response)=>{
                 response.body.should.be.eql({
                     "success": false,

@@ -4,7 +4,8 @@ const router=express.Router();
 
 const cacheCheck=require('.././middleware/cache');
 const translateText= require('.././services/translate');
-// checking in cache if the translated text already exists or not
+
+//if data exists in cache then it is fetched directly from cache else it is fetched from translation api
 router.get('/translate',cacheCheck.cacheFetch,translateText.translate);
 module.exports=router;
 

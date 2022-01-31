@@ -17,7 +17,7 @@ A web server with a RESTful API to translate a text from one language to another
 ```
 {URL}/translate?sourceText=&targetLanguage=&sourceLanguage=
 
-# URL: (http://localhost:5000) or https://immense-anchorage-24441.herokuapp.com
+# URL: (http://localhost:3000) or https://immense-anchorage-24441.herokuapp.com
 ```
 ### Test using Mocha
 >Type npm test in terminal to test the API
