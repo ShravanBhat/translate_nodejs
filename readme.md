@@ -39,9 +39,9 @@ A web server with a RESTful API to translate a text from one language to another
 - Smart pre-cache function is being called in the translate text function in which related languages of the entered language are checked, translated and stored in cache<br/>
 - Evaluation of the results is done by comparing the response time of the api<br/> 
 - Mocha is used for testing.Three test scenarios have been taken into consideration.<br/>
--- 1)Correct Input 
--- 2)Wrong Language name entered 
--- 3)Not text entered for translation
+1)Correct Input<br/> 
+2)Wrong Language name entered<br/>  
+3)Not text entered for translation<br/> 
 
 ### Screenshots
 **First time API call for a particular word and language**
