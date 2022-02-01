@@ -5,7 +5,6 @@ A web server with a RESTful API to translate a text from one language to another
   >Nodejs<br/>
   >Express framework<br/>
   >Redis (For caching & smart caching)<br/>
-  >Mocha to test the API<br/>
   >Heroku-cli for deploying it to Heroku
 
 ### Key modules used
