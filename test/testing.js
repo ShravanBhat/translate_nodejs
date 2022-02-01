@@ -25,13 +25,24 @@ describe('GET /translate?sourceText=&targetLanguage=&sourceLanguage=',()=>{
                 done();
         })
     })
-    it('It should not  GET the translated word of the target language',(done)=>{
+    it('It should ask the user to recheck the source language name',(done)=>{
         chai.request(server)
         .get('/translate?sourceText=hello&targetLanguage=hondi&sourceLanguage=english') //  word : Hello ; totranslate : Hindi : wrong language name(hondi) given
         .end((err,response)=>{
                 response.body.should.be.eql({
                     "success": false,
                     "message": "Kindly check the source Language"
+                });           
+                done();
+        })
+    })
+    it('It should ask user to provide text for translation',(done)=>{
+        chai.request(server)
+        .get('/translate?sourceText=&targetLanguage=hndi&sourceLanguage=english') //  No Text input
+        .end((err,response)=>{
+                response.body.should.be.eql({
+                    success: false,
+                    message: "Please enter the text"
                 });           
                 done();
         })

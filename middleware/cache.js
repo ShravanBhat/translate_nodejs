@@ -19,7 +19,8 @@ module.exports.cacheFetch = function(req, res, next) {
     let requestparam = req.query; //get parameters from request
     if (req.query.sourceText.length == 0) {
         return res.json(422, {
-            message: "Please enter text",
+            success: false,
+            message: "Please enter the text"
 
         });
     }
@@ -68,6 +69,6 @@ module.exports.cacheFetch = function(req, res, next) {
 //to set the cache without expiration,we can use client.set(key,res);
 module.exports.cacheSet = function(key, res) {
     client.setEx(key, 2000, res);
-    console.log("Cache Set Successfully");
+    //console.log("Cache Set Successfully");
 
 }

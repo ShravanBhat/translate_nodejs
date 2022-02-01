@@ -14,6 +14,6 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "mocha"
+    "test": "mocha --timeout 3000 --retries 2 --exit"
   }
 }

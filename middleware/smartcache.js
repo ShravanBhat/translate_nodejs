@@ -41,7 +41,7 @@ module.exports.smartcaching = function(sourceText, targetlanguageCode, sourceLan
                         to: similarLanguages[i][j]
                     }).then(response => {
 
-                        console.log(key);
+                        //console.log(key);
                         cacheSetter.cacheSet(key, response.text);
                     }).catch(err => {
                         console.error(err);
