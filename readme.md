@@ -6,6 +6,7 @@ A web server with a RESTful API to translate a text from one language to another
   >Express framework<br/>
   >Redis (For caching & smart caching)<br/>
   >Mocha to test the API<br/>
+  >Heroku-cli for deploying it to Heroku
 
 ### Key modules used
 - vitalets/google-translate-api (for translating text)<br/>
@@ -40,6 +41,7 @@ A web server with a RESTful API to translate a text from one language to another
 - For similar languages a list of related languages is stored in smartcache<br/>
 - Smart pre-cache function is being called in the translate text function in which related languages of the entered language are checked, translated and stored in cache<br/>
 - Evaluation of the results is done by comparing the response time of the api(refer screensots)<br/> 
+- Deployed it on Heroku to make it accessible to everyone on the interet<br/>
 - Mocha is used for testing.Three test scenarios have been taken into consideration.<br/>
 1)Correct Input<br/> 
 2)Wrong Language name entered<br/>
