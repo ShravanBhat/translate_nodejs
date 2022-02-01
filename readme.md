@@ -9,7 +9,8 @@ A web server with a RESTful API to translate a text from one language to another
 
 ### Key modules used
 - vitalets/google-translate-api (for translating text)<br/>
-- iso-639-1 (for detecting language code)<br/>   
+- ISO-639-1 (for detecting language code)<br/>   
+- Mocha for testing
 
 ### Run the API
 >Type npm start in terminal to start the server
@@ -32,12 +33,13 @@ A web server with a RESTful API to translate a text from one language to another
 ### Explanation of Design Decisions
 - Used Express framework <br/>
 - User enters text,source language and target language he wants to translate it to<br/>
-- Middleware folder contains the middleware of cache that act as a check before moving to the controller, if key is present in redis then it would return the value and not move to the translation else if not found it will be feeded to translation API for translation<br>
-- vitalets/google-translate-api module is used to translate the text, text,source and target language code are passed as parameters to translate function provided by this module and in response we get the translated text<br/>
+- Middleware folder contains the middleware of cache that act as a check before moving to the controller, if key is present in Redis then it would return the value and not move to the translation else if not found it will be feeded to translation API for translation<br>
+- vitalets/google-translate-api module is used to translate the text. Text,source and target language code are passed as parameters to translate function provided by this module and in response we get the translated text<br/>
+- ISO-639-1 is used to convert language name to language code which would be feeded to translation APi<br/>
 - This translated text is cached to reduce response time of repeated api hits<br/>
-- For similar languages a list of related languages is stored<br/>
+- For similar languages a list of related languages is stored in smartcache<br/>
 - Smart pre-cache function is being called in the translate text function in which related languages of the entered language are checked, translated and stored in cache<br/>
-- Evaluation of the results is done by comparing the response time of the api<br/> 
+- Evaluation of the results is done by comparing the response time of the api(refer screensots)<br/> 
 - Mocha is used for testing.Three test scenarios have been taken into consideration.<br/>
 1)Correct Input<br/> 
 2)Wrong Language name entered<br/>
