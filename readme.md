@@ -13,9 +13,9 @@ A web server with a RESTful API to translate a text from one language to another
 - Mocha for testing
 
 ### Run the API
->Clone the repo
->Replace existing credentials with your redis credentials in config.js
->Type npm start in terminal to start the server
+>Clone the repo<br/>
+>Replace existing credentials with your redis credentials in config.js<br/>
+>Type npm start in terminal to start the server<br/>
 >To get the translation, we can use Postman or any web browser and hit this API as follows:
 ```
 {URL}/translate?sourceText=&targetLanguage=&sourceLanguage=
